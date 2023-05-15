@@ -18,21 +18,20 @@ today = datetime.now()
 today_tuple = (today.month, today.day)
 
 data = pandas.read_csv("birthdays.csv")
-
+print(today)
 # birthday_dict = {
 #     (bithday_month, birthday_day): data_row
 # }
 
-#
 birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
 list = [data_row for (index, data_row) in data.iterrows()]
 # print(birthdays_dict)
 # print(list)
 
-file_dict = {(row["name"],row['email']) for(index,row) in data.iterrows()}
-file_dict2 = {(row["name"],row['email']):row["year"] for(index,row) in data.iterrows()}
-print(file_dict)
-print(file_dict2)
+# file_dict = {(row["name"],row['email']) for(index,row) in data.iterrows()}
+# file_dict2 = {(row["name"],row['email']):row["year"] for(index,row) in data.iterrows()}
+# print(file_dict)
+# print(file_dict2)
 
 # if today_tuple in birthdays_dict:
 #     birthday_person = birthdays_dict[today_tuple]
@@ -41,7 +40,7 @@ print(file_dict2)
 #         contents = letter_file.read()
 #         contents = contents.replace("[NAME]", birthday_person["name"])
 #
-#     with smtplib.SMTP("") as connection:
+#     with smtplib.SMTP("smtp.gmail.com") as connection:
 #         connection.starttls()
 #         connection.login(MY_EMAIL, MY_PASSWORD)
 #         connection.sendmail(
